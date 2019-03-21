@@ -69,7 +69,7 @@ You must already have your rsconnect credentials set up in the host machine. Lau
 cd shiny-examples
 docker run --rm -ti --name deployer \
     -v "$(pwd)":/srv/shiny-server \
-    -v "$(Rscript -e 'cat(rsconnect:::rsconnectConfigDir())')":/root/.config/R/connect \
+    -v "$(Rscript -e 'cat(rsconnect:::rsconnectConfigDir())')":/root/.config/R/rsconnect \
     ss-shiny-devel /bin/bash
 ```
 
@@ -77,8 +77,8 @@ Once in the container, you can deploy apps with:
 
 ```sh
 cd /srv/shiny-server
-./deploy -d 116
+./deploy 111 116
 
 # Or, to deploy all
-./deploy -d --all
+./deploy --all
 ```
